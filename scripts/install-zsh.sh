@@ -55,16 +55,17 @@ install -Dm644 "$SCRIPT_DIR/zsh/aliases.zsh" "$ZSH_CONFIG_DIR/aliases.zsh"
 
 ZSH_BIN="$(command -v zsh)"
 CURRENT_SHELL="$(getent passwd "$(id -un)" 2>/dev/null | cut -d: -f7 || true)"
-if [[ "$CURRENT_SHELL" != "$ZSH_BIN" ]]; then
-    if command -v chsh >/dev/null 2>&1; then
-        if chsh -s "$ZSH_BIN"; then
-            log "Default shell changed to $ZSH_BIN"
-        else
-            warn "Could not change the default shell automatically. Run: chsh -s $ZSH_BIN"
-        fi
-    else
-        warn "chsh is unavailable. Run manually: chsh -s $ZSH_BIN"
-    fi
-fi
+# # Change the default shell to zsh if it's not already set
+# if [[ "$CURRENT_SHELL" != "$ZSH_BIN" ]]; then
+#     if command -v chsh >/dev/null 2>&1; then
+#         if chsh -s "$ZSH_BIN"; then
+#             log "Default shell changed to $ZSH_BIN"
+#         else
+#             warn "Could not change the default shell automatically. Run: chsh -s $ZSH_BIN"
+#         fi
+#     else
+#         warn "chsh is unavailable. Run manually: chsh -s $ZSH_BIN"
+#     fi
+# fi
 
-log "Installed $HOME/.zshrc and $ZSH_CONFIG_DIR/aliases.zsh"
+# log "Installed $HOME/.zshrc and $ZSH_CONFIG_DIR/aliases.zsh"
