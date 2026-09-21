@@ -44,19 +44,6 @@ The prefix is `Ctrl-a`. Detach with `Ctrl-a d`, then reattach with:
 tmux attach -t work
 ```
 
-## VS Code Dev Container
-
-Run the installer from the container as the same user that owns the home directory, commonly `vscode`:
-
-```json
-{
-  "remoteUser": "vscode",
-  "postCreateCommand": "bash /workspaces/<project>/install.sh"
-}
-```
-
-For a real project, install system packages in the container `Dockerfile` so they survive a container rebuild. Keep the user configuration installation in `postCreateCommand` or run `install.sh` manually.
-
 ## Notes
 
 - The zsh configuration safely skips Oh My Zsh if the clone fails or is not available yet.

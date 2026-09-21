@@ -1,0 +1,9 @@
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.secret
+.ssh/
+credentials/
+secrets/
